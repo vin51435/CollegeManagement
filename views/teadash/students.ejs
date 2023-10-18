@@ -1,0 +1,60 @@
+<%- include('partials/head')%>
+  <%- include('partials/navbar')%>
+    <div class="main_div studentDashDiv p-1 h-100">
+      <%- include('partials/flash')%>
+        <div class="allStuTopDiv  ">
+          <h2 class="display-4">Student Details</h2>
+          <p class="align-bottom m-0 h4">Class:T.Y.C.S <br>Div:A</p>
+        </div>
+        <div class="stuEditDiv mt-1 h3">
+          <section class="text-end me-1">Add student
+            <a href="students/add">
+              <i class='bx bx-plus-circle'></i>
+            </a>
+          </section>
+        </div>
+        <div class="stuMainDiv   mt-1 table-responsive-sm">
+          <table class="table table-bordered table-sm">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Roll No.</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email ID</th>
+                <!-- <th scope="col">Department</th> -->
+                <th scope="col">Details</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <% let id=1 %>
+                <% for(let student of students) {%>
+                  <tr>
+                    <th scope="row">
+                      <%= id %>
+                    </th>
+                    <td>
+                      <%= student.roll %>
+                    </td>
+                    <td>
+                      <%= student.firstName %>
+                    </td>
+                    <td>
+                      <%= student.lastName %>
+                    </td>
+                    <td>
+                      <%= student.email %>
+                    </td>
+                    <!-- <td>
+                    <%= student.department %>
+                  </td> -->
+                    <td><a href="/teacherdash/student/<%=student._id%>">Details</a></td>
+                  </tr>
+                  <% id+=1 %>
+                    <% }%>
+            </tbody>
+          </table>
+        </div>
+    </div>
+    <%- include('partials/footer')%>

@@ -1,0 +1,35 @@
+<%- include('partials/head')%>
+  <%- include('../teadash/partials/flash')%>
+
+    <h1>Register</h1>
+    <form action="/teacherdash/student/<%= student._id %>/sturegister" method="POST" class="validated-form" novalidate>
+      <div class="mb-3">
+        <label class="form-label" for="username">Username </label>
+        <input class="form-control" type="text" id="username" name="username" required value="<%=student.firstName%>">
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="email">Email</label>
+        <input class="form-control" type="email" id="email" name="email" required value="<%= student.email %>">
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="password">Password</label>
+        <input class="form-control" type="password" id="password" name="password" required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="role">Role</label>
+        <select class="form-select form-select-sm" id="role" name="role" required>
+          <option selected value="Student">Student</option>
+        </select>
+      </div>
+      <button class="btn btn-success">Register</button>
+    </form>
+    <%- include('partials/footer')%>

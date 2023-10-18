@@ -1,0 +1,138 @@
+<%- include('partials/head')%>
+  <%- include('partials/navbar')%>
+    <div class="main_div">
+      <div class="stuDetailHead m-1 p-2 ">
+        <p class="h2 text-end">
+          <%=student.firstName %>
+            <%=student.lastName %>
+        </p>
+        <p class="h2 ">Student Details</p>
+        <div class="d-flex justify-content-between flex-row ">
+          <div class="p-2">
+            <a href="/teacherdash/students" class="btn btn-light btn-sm">Back</a>
+          </div>
+          <div class="p-2">
+            <a href="/teacherdash/student/<%= student._id %>/performance" class="btn btn-light btn-sm">Marksheet</a>
+            <a href="/teacherdash/student/<%=student._id%>/edit" class="btn btn-light btn-sm">Edit Details</a>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="container text-center">
+        <div class="row">
+          <div class="col border ">
+            Username:
+          </div>
+          <div class="col border ">
+          </div>
+          <div class="col border ">
+            Password:
+          </div>
+          <div class="col border ">
+          </div>
+        </div>
+      </div> -->
+      <div>
+        <div class="container text-center">
+          <div class="row align-items-center ">
+            <div class="col-4 border">
+              <% if(student.studentphoto.url){ %>
+                <img src="<%= student.studentphoto.url %> " class="" alt="Photo of a Student"></img>
+                <% } %>
+            </div>
+            <div class="col-4 border">
+              Performance Graph
+            </div>
+            <div class="col-4 border">
+              Attendance Graph
+            </div>
+          </div>
+        </div>
+        <div class="container text-center">
+          <div class="row align-items-center ">
+            <div class="col-4 ">
+              <div class="container">
+                <div class="row row-cols-2">
+                  <div class="col border">
+                    Student Name:
+                  </div>
+                  <div class="col border">
+                    <%=student.firstName %>
+                      <%=student.lastName %>
+                  </div>
+                  <div class="col border">Father Name</div>
+                  <div class="col border">
+                    <%=student.fatherName %>
+                  </div>
+                  <div class="col border">Mother Name</div>
+                  <div class="col border">
+                    <%=student.motherName %>
+                  </div>
+                  <div class="col border">Emai ID</div>
+                  <div class="col border">
+                    <%= student.email %>
+                  </div>
+                  <div class="col border">Phone no</div>
+                  <div class="col border">
+                    <%= student.phone %>
+                  </div>
+                  <div class="col border">Date Of Birth</div>
+                  <div class="col border">
+                    <%= student.dob %>
+                  </div>
+                  <div class="col border">Address</div>
+                  <div class="col border">
+                    <%= student.address %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 ">
+              <div class="container text-center">
+                <div class="row row-cols-2">
+                  <div class="col border">Student ID</div>
+                  <div class="col border">
+                    <%= student.studentID %>
+                  </div>
+                  <div class="col border">Student PRN no</div>
+                  <div class="col border">
+                    <%= student.studentPRN %>
+                  </div>
+                  <div class="col border">Roll no</div>
+                  <div class="col border">
+                    <%= student.roll %>
+                  </div>
+                  <div class="col border">Course</div>
+                  <div class="col border">
+                    <%= student.course %>
+                  </div>
+                  <div class="col border">Department</div>
+                  <div class="col border">
+                    <%= student.department %>
+                  </div>
+                  <div class="col border">Semester</div>
+                  <div class="col border">
+                    Sem-<%= student.semester %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 ">
+
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between flex-row  mb-3">
+          <div class="p-2">
+            <a href="/teacherdash/student/<%=student._id%>/sturegister" class="btn btn-light btn-sm">Edit Details</a>
+          </div>
+          <div class="p-2"></div>
+          <div class="p-2">
+            <form action="/teacherdash/student/<%=student._id%>?_method=DELETE" method="POST">
+              <button class="btn btn-danger btn-sm">Delete</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include('partials/footer')%>

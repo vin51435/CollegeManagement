@@ -1,0 +1,138 @@
+<%- include('partials/head')%>
+  <div class="min-vh-100">
+    <div class="container ">
+      <div class="row justify-content-center align-items-center p-5">
+        <div class="col-sm-10 ">
+          <h1 class="text-secondary text-center">Edit <%=student.firstName %>
+              <%=student.lastName %> Details</h1>
+          <div class="border border-secondary rounded p-2">
+            <form class="row g-3 validated-form" action="/teacherdash/student/<%=student._id%>?_method=PUT"
+              method="POST" enctype="multipart/form-data" novalidate>
+              <div class="col-md-6 ">
+                <label for="fName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="fName" name="studentAdd[firstName]" required
+                  value="<%=student.firstName %> ">
+              </div>
+              <div class="col-md-6 ">
+                <label for="lName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lname" name="studentAdd[lastName]" required
+                  value="<%=student.lastName %> ">
+              </div>
+              <div class="col-md-6 ">
+                <label for="father" class="form-label">Father Name</label>
+                <input type="text" class="form-control" id="father" name="studentAdd[fatherName]"
+                  value="<%=student.fatherName %> ">
+              </div>
+              <div class="col-md-6 ">
+                <label for="mother" class="form-label">Mother Name</label>
+                <input type="text" class="form-control" id="lname" name="studentAdd[motherName]"
+                  value="<%=student.motherName %> ">
+              </div>
+              <div class="col-md-6">
+                <label for="phone" class="form-label">Phone No.</label>
+                <input type="text" class="form-control" id="phone" name="studentAdd[phone]"
+                  value="<%= student.phone %> ">
+              </div>
+              <div class="col-md-6">
+                <label for="email" class="form-label ">Email</label>
+                <input type="email" class="form-control" id="email" name="studentAdd[email]"
+                  value="<%=student.email %> ">
+              </div>
+              <div class="col-md-6">
+                <label for="DOB" class="form-label">DOB</label>
+                <input type="date" class="form-control" id="DOB" value="<%=student.dob %>" name="studentAdd[dob]">
+              </div>
+              <div class="col-md-6">
+                <label for="sex" class="form-label">Sex</label>
+                <select class="form-select" aria-label="Default select example" id="sex" name="studentAdd[sex]">
+                  <option value="Male" <%=student.sex==='Male' ? 'selected' : '' %>>Male</option>
+                  <option value="Female" <%=student.sex==='Female' ? 'selected' : '' %>>Female</option>
+                  <option value="Other" <%=student.sex==='Other' ? 'selected' : '' %>>other</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="inputAddress" class="form-label">Address</label>
+                <input type="text" class="form-control" id="inputAddress" name="studentAdd[address]"
+                  value="<%=student.address %> ">
+              </div>
+              <div class="col-md-6">
+                <label for="inputCity" class="form-label">City</label>
+                <input type="text" class="form-control" id="inputCity" name="studentAdd[city]"
+                  value="<%=student.city %> ">
+              </div>
+              <div class="col-md-4">
+                <label for="inputState" class="form-label">State</label>
+                <input type="text" id="inputState" class="form-select" name="studentAdd[state]"
+                  value="<%=student.state %> ">
+              </div>
+              <div class="col-md-2">
+                <label for="inputZip" class="form-label">Zip</label>
+                <input type="number" class="form-control" id="inputZip" name="studentAdd[zip]"
+                  value="<%=student.zip %>">
+              </div>
+
+              <div class="col-md-4">
+                <label for="departSelect" class="form-label">Department</label>
+                <select class="form-select" aria-label="Default select example" id="departSelect"
+                  name="studentAdd[department]" required>
+                  <option selected>Select Department</option>
+                  <option value="IT" <%=student.department==='IT' ? 'selected' : '' %>>IT</option>
+                  <option value="CS" <%=student.department==='CS' ? 'selected' : '' %>>CS</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="courseSelect" class="form-label">Course</label>
+                <select class="form-select" aria-label="Default select example" id="courseSelect"
+                  name="studentAdd[course]">
+                  <option selected value="Science">Science</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="yearSelect" class="form-label">Year</label>
+                <select class="form-select" aria-label="Default select example" id="yearSelect" name="studentAdd[year]">
+                  <!-- <option selected>Select Department</option> -->
+                  <option selected value="1">2022-2023</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="semSelect" class="form-label">Semester</label>
+                <select class="form-select" aria-label="Default select example" id="semSelect"
+                  name="studentAdd[semester]">
+                  <% for( let i=0; i< 6; i++ ) { %>
+                    <option value="<%=i+1 %>" <%=student.div===i+1 ? 'selected' : '' %>>Semester-<%=i+1%>
+                    </option>
+                    <% } %>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="divSelect" class="form-label">Div</label>
+                <select class="form-select" aria-label="Default select example" id="divSelect" name="studentAdd[div]">
+                  <option value="A" <%=student.div==='A' ? 'selected' : '' %>>A</option>
+                  <option value="B" <%=student.div==='C' ? 'selected' : '' %>>B</option>
+                  <option value="C" <%=student.div==='B' ? 'selected' : '' %>>C</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="roll" class="form-label">Roll No.</label>
+                <input type="number" class="form-control" id="roll" name="studentAdd[roll]" value="<%=student.roll%>"
+                  required>
+              </div>
+              <div class="col">
+                <label for="formFile" class="form-label">Upload Photo</label>
+                <input class="form-control" type="file" id="formFile" name="studentAdd[studentphoto]"
+                  value="<%= student.studentphoto.url %>">
+              </div>
+
+              <div class="d-flex justify-content-between">
+                <div class="p-2"><a href="/teacherdash/student/<%=student._id%>" class="btn btn-primary ">Cancel</a>
+                </div>
+                <div class="p-2"></div>
+                <div class="p-2"><button class="btn btn-primary ">Save</button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- include('partials/footer')%>

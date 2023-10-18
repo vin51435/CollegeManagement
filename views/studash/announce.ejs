@@ -1,0 +1,40 @@
+<%- include('partials/head')%>
+  <%- include('partials/navbar')%>
+    <div class="main_div p-2 position-fixed">
+
+      <%- include('partials/flash')%>
+        <div class="bg-info bg-gradient mb-2 p-2 rounded">
+          <div class="h1 ">
+            Announcements
+          </div>
+        </div>
+        <div class="row position-relative">
+          <div class="container text-center col">
+            <div class="row align-items-start">
+              <% for(announce of announcements) {%>
+                <div class="col-6">
+                  <div class="card text-bg-info mb-3 w-100">
+                    <div class="card-header ">
+                      <%= announce.subject %>
+
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">
+                        <%= announce.title %>
+                      </h5>
+                      <p class="card-text ">
+                        <%= announce.content %>
+                      </p>
+                      <span class="float-end ">
+                        -<%= announce.author %>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <% } %>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <%- include('partials/footer')%>

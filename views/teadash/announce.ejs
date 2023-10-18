@@ -1,0 +1,81 @@
+<%- include('partials/head')%>
+  <%- include('partials/navbar')%>
+    <div class="main_div p-2 position-sticky">
+      <!-- orginal nav-bar absolute main_div fixed-->
+      <!-- nav-bar absolute and main_div sticky -->
+      <%- include('partials/flash')%>
+        <div class="bg-info bg-gradient mb-2 p-2 rounded">
+          <div class="h1 ">
+            Announcements
+          </div>
+          <div class="d-flex justify-content-end">
+            <div class="p-2">
+              <button class="announceNewBtn btn btn-success">New</button>
+            </div>
+          </div>
+        </div>
+        <div class="row position-relative">
+          <div class="container text-center col">
+            <div class="row align-items-start">
+              <% for(announce of announcements) {%>
+                <div class="col-6">
+                  <div class="card text-bg-info mb-3 w-100">
+                    <div class="card-header ">
+                      <%= announce.subject %>
+                    </div>
+                    <div class="card-body p-2">
+                      <h5 class="card-title">
+                        <%= announce.title %>
+                      </h5>
+                      <p class="card-text announceContent test-text">
+                        <%=announce.content %>
+                      </p>
+                      <!-- <p class="card-text announceContent converter-result">
+                      </p> -->
+                      <span class="float-end me-2">
+                        -<%= announce.author %>
+                      </span>
+                      <form action="/teacherdash/announcement/<%=announce._id%>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger btn-sm float-start">Delete</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <% } %>
+            </div>
+          </div>
+
+          <!-- test -->
+
+          <!--@ Announcement Add -->
+          <div class="announceDiv d-flex justify-content-center d-none col position-absolute">
+            <div class="addAnnounce border border-secondary rounded p-2 shadow">
+              <form class="row g-3 validated-form" novalidate action="/teacherdash/announcement" method="POST">
+                <div class="col-4 ">
+                  <label for="author" class="form-label">Author</label>
+                  <input type="text" class="form-control" id="author" name="author" value="<%= author %>" readonly
+                    required>
+                </div>
+                <div class="col-8 ">
+                  <label for="subject" class="form-label">Subject</label>
+                  <input type="text" class="form-control" id="subject" name="subject" required>
+                </div>
+                <div class="col-12 ">
+                  <label for="title" class="form-label">Title</label>
+                  <input type="text" class="form-control" id="title" name="title" required>
+                </div>
+                <div class="col-12 ">
+                  <label for="content" class="form-label">Content</label>
+                  <textarea type="text" class="form-control" id="content" name="content" required></textarea>
+                </div>
+                <div class=" col-12 text-end">
+                  <button class="announceCancelBtn announceAddBtn btn btn-warning ">Cancel</button>
+                  <button class="announceAddBtn btn btn-primary ">Add</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <%- include('partials/footer')%>
