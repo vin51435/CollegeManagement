@@ -1,0 +1,29 @@
+.studentDashDiv {
+  border: dashed;
+  position: relative;
+}
+.allStuTopDiv,
+.stuEditDiv,
+.stuMainDiv {
+  border: dashed;
+}
+ol,
+ul {
+  padding-left: 0rem;
+}
+.stuDetailHead {
+  background-color: #11101d;
+  color: aliceblue;
+}
+.stuDetailHead a {
+  color: black;
+  background-color: aliceblue;
+}
+.addAnnounce {
+  background-color: white;
+  width: 65%;
+}
+img {
+  height: 180px;
+  /* width: 180x; */
+}

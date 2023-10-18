@@ -1,0 +1,59 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+html,
+body,
+.div-Main {
+  font-family: 'Lato', 'Roboto', sans-serif;
+  height: 100vh;
+}
+
+.div-Main {
+  vertical-align: middle;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.div-Main-border {
+  padding: 2em;
+} */
+
+a:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 992px) {
+  .div-Main-border {
+    width: 65%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 768px) {
+  .div-Main-border {
+    padding: 0;
+  }
+}
+@media (max-width: 575px) {
+  .div-Main-border {
+    padding: 6em;
+    border: 0;
+  }
+}
+@media (min-width: 992px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm {
+    max-width: 900px;
+  }
+}
+/* TODO Page is not working properly on smaller screen */
+/* .password_div {
+  margin-top: 2rem;
+} */
