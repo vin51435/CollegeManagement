@@ -1,5 +1,2 @@
 # CollegeManagement
-# CollegeMangement
-# CollegeMangement
-# CollegeManagement
 
